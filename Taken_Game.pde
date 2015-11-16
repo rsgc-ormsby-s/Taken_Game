@@ -1,30 +1,49 @@
 PImage Liam; //Creates the Image of Liam Neeson
 PImage Warehouse; //Creates the Image of the Warehouse
+PImage Kim; //Creates the Image of Kim
 float LiamS; //Speed for Liam Neeson
 float LiamY; //Tracks vertical positon of Liam Neeson
 float LiamX; //Tracks the Horizontal position of Liam Neeson
 
 //Simon Ormsby
-//Purpose: To create a WASD based movement kind of landscape
+//Purpose: To create a WASD based platformer based on the movie Taken 1, 2 and 3
 
 //Setup for the Simulator
 void setup() { 
   background(100, 100, 100);
   size(1000, 700);
 
-  //Load the Image "Warehouse
+  {
+    //Loading Images
+    Warehouse = loadImage("Warehouse.jpeg"); //Loading the Warehouse Image
 
-  Warehouse = loadImage("Warehouse.jpeg"); 
-  { //Loading the Warehouse Image
+    Liam = loadImage ("Liam.png"); //Loading the Image Liam Neeson
 
-    // Load the image "Liam"
-    Liam = loadImage ("Liam.png");
-  } //Loading the Image Liam Neeson
+    Kim = loadImage ("Kim.png"); //Loading the Image Kim
+  } 
+
+  //Make Liam Neeson Move
+  //Create the Appearence of Liam Neeson Moving
+  { 
+    LiamS = LiamX + LiamS;
+  }
 }
 // Create Liam Neeson
 void draw() {
-  image(Warehouse, 1, 1, 1000, 700);
-  image(Liam, 800, 400, 150, 300);
+  //Drawing the Pictures
+  image(Warehouse, 1, 1, 1000, 700); //Creates Warehouse Background
+  image(Liam, 800, 400, 150, 300); //Creates Liam Neeson
+  image(Kim, 100, 25, 150, 300); 
+
+  //Creating the Platforms
+  strokeWeight(10);
+  stroke(200, 0, 0);
+  line(100, 300, 200, 300);
+  line(200, 350, 300, 350);
+  line(300, 400, 400, 400);
+  line(400, 450, 500, 450);
+  line(500, 500, 600, 500); 
+  line(600, 550, 700, 550);
 }
 
 void keyPressed() {
