@@ -13,26 +13,24 @@ void setup() {
   background(100, 100, 100);
   size(1000, 700);
 
-  {
-    //Loading Images
-    Warehouse = loadImage("Warehouse.jpeg"); //Loading the Warehouse Image
+  //Setting Initial Values
+  LiamX = 800;
+  LiamS = 0;
 
-    Liam = loadImage ("Liam.png"); //Loading the Image Liam Neeson
-
-    Kim = loadImage ("Kim.png"); //Loading the Image Kim
-  } 
+  //Loading Images
+  Warehouse = loadImage("Warehouse.jpeg"); //Loading the Warehouse Image
+  Liam = loadImage ("Liam.png"); //Loading the Image Liam Neeson
+  Kim = loadImage ("Kim.png"); //Loading the Image Kim
 
   //Make Liam Neeson Move
   //Create the Appearence of Liam Neeson Moving
-  { 
-    LiamS = LiamX + LiamS;
-  }
+  LiamX = LiamX + LiamS;
 }
 // Create Liam Neeson
 void draw() {
   //Drawing the Pictures
   image(Warehouse, 1, 1, 1000, 700); //Creates Warehouse Background
-  image(Liam, 800, 400, 150, 300); //Creates Liam Neeson
+  image(Liam, LiamX, 400, 150, 300); //Creates Liam Neeson
   image(Kim, 100, 25, 150, 300); 
 
   //Creating the Platforms
@@ -44,13 +42,17 @@ void draw() {
   line(400, 450, 500, 450);
   line(500, 500, 600, 500); 
   line(600, 550, 700, 550);
+  
+   //Make Liam Neeson Move
+  //Create the Appearence of Liam Neeson Moving
+  LiamX = LiamX + LiamS;
 }
 
 void keyPressed() {
   if (key == 'a') {
-    LiamS = 2;
+    LiamS = -20;
   }
   if (key == 'd') {
-    LiamS = -2;
+    LiamS = 20;
   }
 }
