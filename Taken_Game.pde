@@ -14,7 +14,7 @@ float gravity; // tracks gravity
 //Setup for the Simulator
 void setup() { 
   background(100, 100, 100);
-  size(1000, 700);
+  size(1500, 700);
 
   //Setting Initial Values
   LiamY = 400;
@@ -75,5 +75,8 @@ void keyPressed() {
     LiamS1 = 20;
   }
   if (key == 'w') {
+    if (LiamY >= 400) {
+      LiamA = -0.1;
+    }
   }
 }
